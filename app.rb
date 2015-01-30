@@ -52,7 +52,7 @@ end
 patch("/bands/:id") do
   band_id = params.fetch("id").to_i()
   @band = Band.find(band_id)
-  venue_ids = params.fetch("venue_ids")
+  venue_ids = params.fetch("venue_ids").to_i()
   @band.update({:venue_ids => venue_ids})
   @venues = Venue.all()
   erb(:band_edit)
@@ -61,7 +61,7 @@ end
 patch("/venue/:id") do
   venue_id = params.fetch("id").to_i()
   @venue = Venue.find(venue_id)
-  band_ids = params.fetch("band_ids")
+  band_ids = params.fetch("band_ids").to_i()
   @venue.update({:band_ids => band_ids})
   @bands = Band.all()
   erb(:venue_edit)

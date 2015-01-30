@@ -7,6 +7,7 @@
   <h3>Here are all the bands in this database:</h3>
 
   <% if @bands.any?() %>
+
   <p>Click on band to see what venue they're playing at!:</p>
 
   <ul>
@@ -14,8 +15,11 @@
     <li><a href="/bands/<%= band.id() %>"><%= band.band_name() %></a></li>
     <% end %>
   </ul>
+
   <% else %>
+
   <p>There are no bands added yet!</p>
+
   <% end %>
 
 
@@ -29,6 +33,9 @@
     <li><a href="/venues/<%= venue.id() %>"><%= venue.venue_name() %></a></li>
     <% end %>
   </ul>
+
   <% else %>
+
   <p>There are no venues added yet!</p>
+
   <% end %>

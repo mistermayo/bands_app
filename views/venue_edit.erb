@@ -3,18 +3,22 @@
 <h3>Select all bands who played in this venue!</h3>
 
 <% if @bands.any?() %>
+
 <form action="/venues/<%= @venue.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
+
   <% @bands.each() do |band| %>
   <div class="checkbox">
     <label>
       <input type="checkbox" name="band_ids[]" value="<%= band.id() %>"><%= band.band_name() %>
     </label>
   </div>
+  
   <% end %>
 
   <button type="submit">Add bands</button>
 </form>
+
 <% end %>
 
 <% if @venue.bands().any?() %>
@@ -27,7 +31,9 @@
   <% end %>
 </ul>
 <% else %>
+
 <p>There are no bands yet! <a href="/bands">Add bands here</a></p>
+
 <% end %>
 
 
