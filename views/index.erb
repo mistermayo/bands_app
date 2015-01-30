@@ -1,19 +1,16 @@
 <h1>Music World</h1>
 
-<form id="form_id" action="/bands" method="post" class="form-horizontal">
-  <label for="band_name">Band Name</label>
-  <input type="text" name="band_name" placeholder="e.g. rocker dudes">
 
-  <button action="submit" class="btn btn-sm btn-primary">Add Band</button>
+<ul>
+  <% @bands.each() do |band| %>
+    <li><%= band.band_name %> <a href="/bands/<%= band.id() %>/edit">Update this band's description</a></li>
+  <% end %>
+</ul>
+<p>Create a new band:</p>
+
+<form action='/bands' method='post'>
+  <label for='band_name'>Band Name</label>
+  <input id='band_name' name='band_name' type='text'>
+
+  <button type="submit">Add task</button>
 </form>
-
-<% if Band.any?() %>
-  <p>Check out all these Bands you created!</p>
-  <ul>
-    <% @bands.each() do |band| %>
-      <li><a href="/bands/<% band.id() %>"><%= band.band_name() %> </a></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>You have not created any bands yet</p>
-<% end %>

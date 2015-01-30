@@ -1,0 +1,9 @@
+<h1>Update <%=@band.band_name() %> </h1>
+
+<form action="/bands/<%= @band.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="band_name">Redescribe your band:</label>
+  <input id="band_name" name="band_name" type="text">
+
+  <button type="submit">Update</button>
+</form>

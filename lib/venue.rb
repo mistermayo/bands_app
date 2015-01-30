@@ -3,7 +3,7 @@ class Venue < ActiveRecord::Base
   validates(:venue_name, {:presence => true, :length => {:maximum => 50 }})
   validates_uniqueness_of(:venue_name, {:case_sensitive => false})
   before_save(:capitalize_every_word)
-  
+
   private
 
   define_method(:capitalize_entire_name) do
