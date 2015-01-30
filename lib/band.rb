@@ -8,13 +8,13 @@ class Band < ActiveRecord::Base
   default_scope {order('band_name')}
 
   private
-  
+
   define_method(:capitalize_entire_name) do
     split_string =[]
-    self.name().split(' ').each do |word|
+    self.band_name().split(' ').each do |word|
       split_string.push(word.capitalize())
     end
-    self.name = split_string.join(' ')
+    self.band_name = split_string.join(' ')
   end
 
 end

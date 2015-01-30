@@ -1,16 +1,19 @@
 <h1>Music World</h1>
 
-
-<ul>
-  <% @bands.each() do |band| %>
-    <li><%= band.band_name %> <a href="/bands/<%= band.id() %>/edit">Update this band's description</a></li>
-  <% end %>
-</ul>
 <p>Create a new band:</p>
+
 
 <form action='/bands' method='post'>
   <label for='band_name'>Band Name</label>
   <input id='band_name' name='band_name' type='text'>
 
-  <button type="submit">Add task</button>
+  <button type="submit">Add Band</button>
 </form>
+
+<h2>Bands</h2>
+
+<ul>
+  <% @bands.each() do |band| %>
+    <li><%= band.band_name %><a href="/bands/<%= band.id() %>/edit">Update this band's name</a><</li>
+  <% end %>
+</ul>

@@ -1,4 +1,4 @@
-<h1>Update <%=@band.band_name() %> </h1>
+<h1>Update <%= @band.band_name() %></h1>
 
 <form action="/bands/<%= @band.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
