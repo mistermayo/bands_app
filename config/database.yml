@@ -1,7 +1,9 @@
 development:
   adapter: postgresql
   database: music_world_development
+  template: template0
 
 test:
   adapter: postgresql
   database: music_world_test
+  template: template0

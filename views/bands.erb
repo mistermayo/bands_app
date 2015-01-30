@@ -11,6 +11,7 @@
 
 
 <% if @bands.any?() %>
+
 <p>Click on a Band to see where they play:</p>
 
 <ul>
@@ -18,8 +19,11 @@
   <li><a href="/bands/<%= band.id() %>"><%= band.band_name() %></a></li>
   <% end %>
 </ul>
+
 <% else %>
+
 <p>There are no bands added yet!</p>
+
 <% end %>
 
 <p><a href="/venues">See all venues</a></p>
