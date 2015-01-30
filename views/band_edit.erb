@@ -1,9 +1,35 @@
-<h1>Update <%= @band.band_name() %></h1>
+<h1><%= @band.band_name() %></h1>
 
-<form action="/bands/<%= @band.id() %>" method="post">
-  <input name="_method" type="hidden" value="patch">
-  <label for="band_name">Redescribe your band:</label>
-  <input id="band_name" name="band_name" type="text">
+<h3>Select all venues hosting this band:</h3>
 
-  <button type="submit">Update</button>
+<% if @venues.any?() %>
+<form action="/bands/<%= @band.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <% @venues.each() do |venue| %>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.venue_name() %>
+    </label>
+  </div>
+  <% end %>
+
+  <button type="submit">Add Venues</button>
 </form>
+<% end %>
+
+
+<% if @band.venues().any?() %>
+<h3>Here are all the venues hosting this band:</h3>
+
+<ul>
+  <% @band.venues().each() do |venue| %>
+  <li><%= venue.venue_name() %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no venues yet!</p>
+<% end %>
+
+
+<a href="/">Return to Main Page</a>

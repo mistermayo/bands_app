@@ -1,19 +1,34 @@
-<h1>Music World</h1>
+<h1>Welcome to Music World!</h1>
 
-<p>Create a new band:</p>
+  <p><a href="/bands">Add a new band</a></p>
+  <p><a href="/venues">Add a new venue</a></p>
 
 
-<form action='/bands' method='post'>
-  <label for='band_name'>Band Name</label>
-  <input id='band_name' name='band_name' type='text'>
+  <h3>Here are all the bands in this database:</h3>
 
-  <button type="submit">Add Band</button>
-</form>
+  <% if @bands.any?() %>
+  <p>Click on band to see what venue they're playing at!:</p>
 
-<h2>Bands</h2>
-
-<ul>
-  <% @bands.each() do |band| %>
-    <li><%= band.band_name %><a href="/bands/<%= band.id() %>/edit">Update this band's name</a><</li>
+  <ul>
+    <% @bands.each do |band| %>
+    <li><a href="/bands/<%= band.id() %>"><%= band.band_name() %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no bands added yet!</p>
   <% end %>
-</ul>
+
+
+  <h3>Here are all the venues in this database:</h3>
+
+  <% if @venues.any?() %>
+  <p>Click on a venue to see who's playing:</p>
+
+  <ul>
+    <% @venues.each do |venue| %>
+    <li><a href="/venues/<%= venue.id() %>"><%= venue.venue_name() %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no venues added yet!</p>
+  <% end %>

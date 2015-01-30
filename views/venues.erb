@@ -1,0 +1,27 @@
+<h1>Welcome to the Venue page</h1>
+
+<p>Add a venue to the database:</p>
+
+<form action="/venues" method="post">
+  <label for="venue_name">Venue's name:</label>
+  <input id="venue_name" name="venue_name" type="text">
+
+  <button type="submit">Add movie</button>
+</form>
+
+
+<% if @venues.any?() %>
+  <p>Click on a venue to see who's playing there:</p>
+
+  <ul>
+    <% @venues.each do |venue| %>
+    <li><a href="/venues/<%= venue.id() %>"><%= venue.venue_name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+    <p>There are no venues added yet!</p>
+<% end %>
+
+<p><a href="/bands">See all bands</a></p>
+
+<p><a href="/">Return to Main Page</a></p>
