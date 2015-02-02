@@ -10,7 +10,7 @@ class Band < ActiveRecord::Base
 
   private
 
-  define_method(:titlecase_venue_name) do
+  define_method(:titlecase_band_name) do
     self.band_name=(band_name().titlecase())
   end
 
